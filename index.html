@@ -1,0 +1,2072 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ff9a7c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="桃太妹種單字｜中文正面、英文背面的個人單字卡。">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<title>桃太妹種單字</title>
+<style>
+:root{
+  --ink:#21464a;--ink2:#557176;--cream:#fff8eb;--paper:#fffdf8;--white:#fff;
+  --peach:#ff9a7c;--peach2:#f67462;--sun:#ffd56f;--sea:#70cbd0;--sea2:#3f9ea8;
+  --mint:#aee2c8;--leaf:#58a77d;--sand:#f3d39c;--yellow:#ffe9a9;--pink:#ffe3dc;
+  --line:rgba(34,77,81,.12);--shadow:0 20px 55px rgba(50,87,90,.14);--soft:0 10px 24px rgba(50,87,90,.10)
+}
+*{box-sizing:border-box}
+html{background:var(--cream);scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:ui-rounded,"SF Pro Rounded","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;color:var(--ink);background:
+radial-gradient(circle at 12% 2%,rgba(255,213,111,.42),transparent 26%),
+radial-gradient(circle at 92% 13%,rgba(112,203,208,.25),transparent 24%),
+linear-gradient(180deg,#fff8ea 0%,#fffdf8 49%,#eefaf7 100%);overflow-x:hidden}
+button,select,input{font:inherit}button{-webkit-tap-highlight-color:transparent}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid rgba(63,158,168,.26);outline-offset:2px}
+.bg-deco{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.bg-deco:before,.bg-deco:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}
+.bg-deco:before{width:240px;height:240px;background:rgba(255,154,124,.10);left:-120px;top:42%}
+.bg-deco:after{width:300px;height:300px;background:rgba(112,203,208,.12);right:-150px;top:62%}
+.shell{width:min(820px,100%);margin:0 auto;padding:calc(12px + env(safe-area-inset-top)) 12px calc(32px + env(safe-area-inset-bottom))}
+
+/* HERO */
+.hero{position:relative;min-height:250px;overflow:hidden;border-radius:32px;padding:24px 22px;margin-bottom:12px;background:linear-gradient(150deg,#fffdf8 0%,#fff1df 55%,#dcf3ef 100%);border:1px solid rgba(255,255,255,.86);box-shadow:var(--shadow)}
+.hero:before{content:"";position:absolute;width:330px;height:90px;border-radius:50%;background:rgba(112,203,208,.23);right:-50px;bottom:-41px;transform:rotate(-4deg)}
+.hero-copy{position:relative;z-index:5;width:60%}
+.eyebrow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:8px}.vacay-badge{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:7px 10px;border-radius:10px;font-size:10px;font-weight:1000;letter-spacing:.12em;transform:rotate(-1.5deg);box-shadow:0 6px 0 rgba(33,70,74,.08)}.mini-badge{font-size:11px;font-weight:900;color:var(--peach2)}
+h1{margin:0;font-size:clamp(36px,8vw,54px);line-height:.98;letter-spacing:-.065em;font-weight:1000}.peach-word{display:block;color:var(--peach2);text-shadow:0 3px 0 rgba(255,255,255,.8)}
+.tagline{margin:12px 0 0;max-width:28ch;color:var(--ink2);font-size:14px;line-height:1.72;font-weight:750}.install-btn{margin-top:12px;border:0;border-radius:999px;background:#fff;color:var(--sea2);padding:10px 14px;font-weight:900;box-shadow:var(--soft);cursor:pointer}
+.scene{position:absolute;right:7px;bottom:7px;width:270px;height:220px;z-index:2}
+.sun{position:absolute;right:8px;top:3px;width:64px;height:64px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 10px rgba(255,213,111,.16)}
+.cloud{position:absolute;width:72px;height:22px;border-radius:999px;background:rgba(255,255,255,.92)}.cloud:before,.cloud:after{content:"";position:absolute;border-radius:50%;background:inherit}.cloud:before{width:30px;height:30px;left:10px;top:-15px}.cloud:after{width:39px;height:39px;right:7px;top:-22px}.cl1{right:101px;top:25px;transform:scale(.7)}.cl2{right:-13px;top:83px;transform:scale(.48)}
+.island{position:absolute;left:37px;bottom:27px;width:215px;height:48px;border-radius:52% 48% 44% 46%;background:var(--sand);transform:rotate(-3deg);box-shadow:inset 0 -7px 0 rgba(205,158,97,.12)}
+.wave{position:absolute;left:0;right:-22px;height:35px;border-radius:60% 40% 0 0;background:rgba(112,203,208,.35)}.w1{bottom:6px;transform:rotate(-2deg)}.w2{left:45px;bottom:-10px;opacity:.75;transform:rotate(2deg)}
+.palm{position:absolute;left:18px;bottom:48px;width:122px;height:150px;transform:rotate(-5deg)}.trunk{position:absolute;left:55px;bottom:0;width:18px;height:111px;border-radius:50% 50% 38% 38%;background:#b9825d;transform:rotate(9deg);box-shadow:inset -4px 0 rgba(100,65,47,.10)}.leaf{position:absolute;width:78px;height:24px;border-radius:100% 0 100% 0;background:var(--leaf);transform-origin:right center}.l1{left:-2px;top:23px;transform:rotate(7deg)}.l2{left:19px;top:3px;transform:rotate(39deg)}.l3{right:-5px;top:16px;transform:scaleX(-1) rotate(9deg)}.l4{right:11px;top:-5px;transform:scaleX(-1) rotate(42deg)}
+.surf{position:absolute;right:4px;bottom:32px;width:28px;height:112px;border-radius:50% 50% 48% 48%;background:linear-gradient(180deg,#fff 0 28%,var(--peach) 28% 53%,var(--sun) 53% 76%,var(--sea) 76%);transform:rotate(14deg);box-shadow:0 8px 18px rgba(50,87,90,.13);border:3px solid rgba(255,255,255,.85)}
+.peach{position:absolute;right:50px;bottom:40px;width:94px;height:88px;border-radius:48% 48% 53% 53% / 44% 44% 60% 60%;background:linear-gradient(145deg,#ffb094,#ff836a);box-shadow:inset -9px -7px rgba(214,93,75,.10),0 13px 20px rgba(117,80,63,.14);transform:rotate(4deg)}.peach:before,.peach:after{content:"";position:absolute;bottom:-5px;width:20px;height:9px;border-radius:50%;background:var(--sand)}.peach:before{left:17px;transform:rotate(-9deg)}.peach:after{right:17px;transform:rotate(8deg)}.peach-leaf{position:absolute;right:11px;top:-10px;width:34px;height:17px;border-radius:100% 0 100% 0;background:#6ca37e;transform:rotate(-24deg)}.glass{position:absolute;top:31px;width:27px;height:18px;border-radius:5px 5px 11px 11px;background:#2e4850}.g1{left:16px;transform:rotate(5deg)}.g2{right:16px;transform:rotate(-5deg)}.bridge{position:absolute;top:36px;left:42px;width:11px;height:4px;border-radius:999px;background:#2e4850}.smile{position:absolute;left:38px;top:57px;width:19px;height:10px;border-bottom:3px solid #a34c47;border-radius:0 0 18px 18px}.arm{position:absolute;width:30px;height:8px;border-radius:999px;background:#ff8d72;top:58px}.a1{left:-20px;transform:rotate(28deg)}.a2{right:-20px;transform:rotate(-28deg)}
+
+/* SUMMARY */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.sum{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i l" "i n";align-items:center;column-gap:8px;padding:12px 10px;border-radius:18px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.9);box-shadow:var(--soft)}.sum:after{content:"";position:absolute;width:38px;height:38px;border-radius:50%;right:-13px;bottom:-17px;background:rgba(255,255,255,.55)}.sum-icon{grid-area:i;font-size:20px}.sum span:not(.sum-icon){grid-area:l;color:var(--ink2);font-size:10px;font-weight:900}.sum strong{grid-area:n;font-size:22px;line-height:1;font-variant-numeric:tabular-nums}.sum.total{background:linear-gradient(145deg,#fff8e8,#ffefc6)}.sum.know{background:linear-gradient(145deg,#edf9f3,#dff3e7)}.sum.unsure{background:linear-gradient(145deg,#fff9e7,#fff0bf)}.sum.miss{background:linear-gradient(145deg,#fff2ee,#ffe1da)}
+
+/* CONTROLS */
+.panel{padding:16px;border-radius:24px;background:rgba(255,255,255,.84);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.92);box-shadow:var(--soft);margin-bottom:14px}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:13px}.panel-kicker{color:var(--sea2);font-size:9px;font-weight:1000;letter-spacing:.15em}.panel h2{margin:3px 0 0;font-size:18px;letter-spacing:-.02em}.stamp{padding:7px 9px;border:1.5px dashed rgba(246,116,98,.45);border-radius:7px;color:var(--peach2);font-size:8px;font-weight:1000;letter-spacing:.11em;transform:rotate(2deg)}.group{display:grid;gap:7px}.group+.group{margin-top:12px}.label{font-size:11px;color:var(--ink2);font-weight:900}.chip-row{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 3px;scrollbar-width:none}.chip-row::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;min-width:47px;height:39px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);font-weight:950;cursor:pointer;box-shadow:0 5px 12px rgba(50,87,90,.05)}.chip.active{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-1px)}.control-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:9px;margin-top:12px}.select{width:100%;height:48px;padding:0 12px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:850}.switch{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;border-radius:14px;background:#f5fbfa;border:1px solid rgba(63,158,168,.12);cursor:pointer}.switch strong{display:block;font-size:12px}.switch small{display:block;margin-top:2px;color:var(--ink2);font-size:9px}.switch input{appearance:none;width:42px;height:24px;border-radius:999px;background:#d7e7e5;position:relative;transition:.2s;flex:0 0 auto}.switch input:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.13);transition:.2s}.switch input:checked{background:var(--sea2)}.switch input:checked:before{transform:translateX(18px)}
+
+/* STUDY CARD */
+.study{position:relative}.empty{padding:30px 20px;text-align:center;border-radius:24px;background:#fff;box-shadow:var(--soft)}.empty-emoji{font-size:42px}.empty h2{margin:8px 0 4px;font-size:19px}.empty p{margin:0;color:var(--ink2);font-size:13px}.progress-top{display:flex;align-items:center;justify-content:space-between;margin:0 3px 7px;color:var(--ink2);font-size:12px;font-weight:900}.status{display:inline-flex;align-items:center;justify-content:center;min-width:68px;padding:5px 9px;border-radius:999px;background:#edf3f2;color:var(--ink2);font-size:10px}.status[data-status="know"]{background:#e1f4e9;color:#39785c}.status[data-status="unsure"]{background:#fff1bf;color:#8d6a17}.status[data-status="miss"]{background:#ffe3dd;color:#aa5548}.track{height:8px;border-radius:999px;background:rgba(36,78,82,.08);overflow:hidden;margin-bottom:14px}.bar{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--sea),var(--peach));transition:width .25s ease}.postcard-wrap{position:relative;padding:7px 3px 4px}.tape{position:absolute;width:61px;height:20px;z-index:6;background:rgba(255,233,169,.77);box-shadow:0 1px 2px rgba(0,0,0,.04)}.tape-left{left:27px;top:0;transform:rotate(-6deg)}.tape-right{right:27px;top:0;transform:rotate(6deg)}.flashcard{position:relative;display:block;width:100%;height:330px;border:0;padding:0;background:transparent;perspective:1200px;cursor:pointer}.card-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 24px;border-radius:28px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .58s cubic-bezier(.2,.7,.2,1);box-shadow:0 24px 55px rgba(49,83,87,.16);overflow:hidden}.card-front{background:linear-gradient(145deg,#fffdf8,#fff7e9);border:2px solid rgba(246,116,98,.12)}.card-front:before{content:"";position:absolute;inset:14px;border:1.5px dashed rgba(246,116,98,.22);border-radius:19px;pointer-events:none}.card-front:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-53px;bottom:-55px;background:rgba(255,213,111,.17)}.card-back{transform:rotateY(180deg);background:linear-gradient(145deg,#eaf9f5,#dff5f2);border:2px solid rgba(63,158,168,.13)}.card-back:before{content:"";position:absolute;left:-48px;bottom:-50px;width:160px;height:100px;border-radius:50%;background:rgba(112,203,208,.19)}.flashcard.flipped .card-front{transform:rotateY(180deg)}.flashcard.flipped .card-back{transform:rotateY(360deg)}.meta{position:absolute;top:27px;left:25px;display:flex;gap:7px;z-index:2}.id,.pos{display:inline-flex;align-items:center;min-height:30px;padding:6px 10px;border-radius:999px;font-weight:950;font-size:11px}.id{background:var(--ink);color:#fff}.pos{background:#fff2de;color:var(--peach2);border:1px solid rgba(246,116,98,.13)}.front-label,.back-label{margin-bottom:13px;font-size:10px;font-weight:1000;letter-spacing:.16em;color:var(--peach2)}.back-label{color:var(--sea2)}.main{position:relative;z-index:2;max-width:92%;text-align:center;font-weight:1000;line-height:1.28}.zh{font-size:clamp(29px,7.3vw,45px);letter-spacing:-.045em}.en{font-size:clamp(34px,9vw,54px);letter-spacing:-.04em;color:#236d76}.flip-hint{position:absolute;bottom:24px;color:var(--ink2);font-size:10px;font-weight:800}.corner{position:absolute;right:25px;top:23px;font-size:26px;color:var(--sun);transform:rotate(10deg)}.postmark{position:absolute;right:23px;top:23px;width:59px;height:59px;border-radius:50%;display:grid;place-items:center;text-align:center;border:2px dashed rgba(63,158,168,.34);color:rgba(63,158,168,.65);font-size:8px;line-height:1.15;font-weight:1000;letter-spacing:.08em;transform:rotate(9deg)}.back-actions{position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between;gap:10px}.back-actions .flip-hint{position:static}.sound{display:inline-flex;align-items:center;gap:5px;padding:9px 11px;border-radius:999px;background:#fff;color:var(--sea2);box-shadow:var(--soft);font-size:11px;font-weight:950}
+.rating-title{text-align:center;margin:16px 0 8px;color:var(--ink2);font-size:11px;font-weight:900}.ratings{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.rating{min-height:54px;border:1px solid var(--line);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;gap:7px;color:var(--ink);font-weight:950;cursor:pointer;box-shadow:0 7px 18px rgba(50,87,90,.06);transition:.15s}.rating:active{transform:scale(.97)}.rating.miss{background:#fff5f2}.rating.unsure{background:#fffaf0}.rating.know{background:#f2fbf6}.rating.selected{border-color:transparent;box-shadow:0 0 0 3px rgba(33,70,74,.08),0 7px 18px rgba(50,87,90,.06)}.rating-key{width:22px;height:22px;display:grid;place-items:center;border-radius:7px;background:rgba(33,70,74,.07);font-size:10px}.nav{display:grid;grid-template-columns:1fr 1.3fr;gap:8px;margin-top:10px}.nav-btn{height:50px;border-radius:15px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:950;cursor:pointer}.nav-btn.primary{border:0;background:linear-gradient(135deg,var(--ink),#356f75);color:#fff;box-shadow:0 10px 22px rgba(33,70,74,.17)}.nav-btn:disabled{opacity:.38;cursor:not-allowed}
+.footer{padding:16px 2px 2px}.footer-card{display:flex;align-items:center;gap:10px;padding:13px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9)}.footer-peach{font-size:28px}.footer strong{font-size:12px}.footer p{margin:3px 0 0;color:var(--ink2);font-size:10px;line-height:1.5}.reset{display:block;margin:12px auto 0;border:0;background:transparent;color:#9a6b64;font-size:11px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.ios{text-align:center;color:var(--ink2);font-size:9px;line-height:1.55;margin:10px 10px 0}.toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom));z-index:99;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:10px 14px;border-radius:999px;background:rgba(33,70,74,.94);color:#fff;font-size:11px;font-weight:900;box-shadow:var(--shadow);transition:.22s}.toast.show{transform:translate(-50%,0);opacity:1}
+@media(max-width:610px){.shell{padding-left:10px;padding-right:10px}.hero{min-height:220px;padding:20px 17px;border-radius:27px}.hero-copy{width:58%}.tagline{font-size:12px;line-height:1.58}.scene{width:220px;height:185px;right:-8px;bottom:3px}.sun{width:51px;height:51px}.palm{transform:scale(.84) rotate(-5deg);transform-origin:left bottom}.island{width:175px;left:35px}.peach{right:41px;bottom:37px;transform:scale(.85) rotate(4deg)}.surf{right:2px;bottom:27px;transform:scale(.82) rotate(14deg)}.summary{gap:6px}.sum{padding:10px 8px;column-gap:5px;border-radius:15px}.sum-icon{font-size:17px}.sum strong{font-size:19px}.sum span:not(.sum-icon){font-size:9px}.panel{padding:14px;border-radius:21px}.control-grid{grid-template-columns:1fr}.flashcard{height:305px}.card-face{border-radius:24px;padding:27px 18px}.ratings{gap:6px}.rating{min-height:51px;font-size:13px}.nav-btn{height:48px}}
+@media(max-width:390px){h1{font-size:36px}.hero-copy{width:61%}.tagline{font-size:11px}.scene{right:-28px;transform:scale(.93);transform-origin:right bottom}.summary{grid-template-columns:repeat(2,1fr)}.flashcard{height:290px}.zh{font-size:29px}.en{font-size:35px}}
+@media(min-width:760px){.hero{min-height:275px}.scene{transform:scale(1.12);transform-origin:right bottom}.flashcard{height:370px}.panel,.card-section{max-width:720px;margin-left:auto;margin-right:auto}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+
+<body>
+  <div class="bg-deco" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="vacay-badge">VACAY VOCAB ✦</span><span class="mini-badge">個人單字卡</span></div>
+        <h1>桃太妹<span class="peach-word">種單字</span></h1>
+        <p class="tagline">中文先想，英文再翻。每天種一點，單字慢慢長出來。</p>
+        <button id="installBtn" class="install-btn" hidden>加入手機主畫面</button>
+      </div>
+      <div class="scene" aria-hidden="true">
+        <div class="sun"></div><div class="cloud cl1"></div><div class="cloud cl2"></div>
+        <div class="palm"><span class="trunk"></span><span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span><span class="leaf l4"></span></div>
+        <div class="island"></div><div class="surf"></div>
+        <div class="peach"><span class="peach-leaf"></span><span class="glass g1"></span><span class="glass g2"></span><span class="bridge"></span><span class="smile"></span><span class="arm a1"></span><span class="arm a2"></span></div>
+        <div class="wave w1"></div><div class="wave w2"></div>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="學習摘要">
+      <div class="sum total"><span class="sum-icon">🏝️</span><span>總單字</span><strong id="totalCount">0</strong></div>
+      <div class="sum know"><span class="sum-icon">🌴</span><span>會了</span><strong id="knownCount">0</strong></div>
+      <div class="sum unsure"><span class="sum-icon">🌤️</span><span>模糊</span><strong id="unsureCount">0</strong></div>
+      <div class="sum miss"><span class="sum-icon">🍑</span><span>不會</span><strong id="missedCount">0</strong></div>
+    </section>
+
+    <section class="panel" aria-label="複習篩選">
+      <div class="panel-head"><div><span class="panel-kicker">CHOOSE YOUR TRIP</span><h2>今天要背哪一區？</h2></div><span class="stamp">POSTCARD</span></div>
+      <div class="group"><span class="label">字母分類</span><div id="letterFilters" class="chip-row"></div></div>
+      <div class="control-grid">
+        <label class="group"><span class="label">複習範圍</span><select id="modeSelect" class="select"><option value="all">全部單字</option><option value="today">今日新增</option><option value="unrated">未作答</option><option value="miss">只看不會</option><option value="unsure">只看模糊</option></select></label>
+        <label class="switch"><span><strong>隨機順序</strong><small>打亂目前範圍</small></span><input id="shuffleToggle" type="checkbox"></label>
+      </div>
+    </section>
+
+    <main class="study">
+      <div id="emptyState" class="empty" hidden><div class="empty-emoji">🧳</div><h2>這一區目前沒有單字</h2><p>換個字母或複習範圍再看看。</p></div>
+      <section id="cardSection" class="card-section">
+        <div class="progress-top"><span id="positionLabel">1 / 1</span><span id="statusLabel" class="status">未作答</span></div>
+        <div class="track"><div id="progressBar" class="bar"></div></div>
+        <div class="postcard-wrap"><span class="tape tape-left"></span><span class="tape tape-right"></span>
+          <button id="flashcard" class="flashcard" type="button" aria-label="點擊翻面">
+            <span class="card-face card-front"><span class="corner">☀︎</span><span class="meta"><span id="cardId" class="id"></span><span id="cardPos" class="pos"></span></span><span class="front-label">中文 → 想英文</span><span id="cardZh" class="main zh"></span><span class="flip-hint">點一下翻到背面</span></span>
+            <span class="card-face card-back"><span class="postmark">VACAY<br>VOCAB</span><span class="back-label">ENGLISH</span><span id="cardEn" class="main en"></span><span class="back-actions"><span id="speakBtn" class="sound" role="button" tabindex="0">🔊 朗讀</span><span class="flip-hint">點一下回中文</span></span></span>
+          </button>
+        </div>
+        <div class="rating-title">這張記得多熟？</div>
+        <div class="ratings"><button class="rating miss" data-rating="miss"><span class="rating-key">1</span><span>不會</span></button><button class="rating unsure" data-rating="unsure"><span class="rating-key">2</span><span>模糊</span></button><button class="rating know" data-rating="know"><span class="rating-key">3</span><span>會了</span></button></div>
+        <div class="nav"><button id="prevBtn" class="nav-btn">← 上一張</button><button id="nextBtn" class="nav-btn primary">下一張 →</button></div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="footer-card"><span class="footer-peach">🍑</span><div><strong>進度會自動留在這台裝置</strong><p>換手機或清除瀏覽器資料後，個人紀錄不會跟著同步。</p></div></div><button id="resetBtn" class="reset">重設學習紀錄</button><p class="ios">iPhone：Safari → 分享 → 加入主畫面，就能像 App 一樣開啟。</p></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+window.VOCABULARY = [
+  {
+    "id": "A001",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "放棄；拋棄；遺棄",
+    "en": "abandon",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A002",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "廢除（制度、法規等）",
+    "en": "abolish",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A003",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "突然地；猝然地",
+    "en": "abruptly",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A004",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "缺席",
+    "en": "absence",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A005",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "絕對的；斷然的",
+    "en": "absolute",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A006",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "吸收；全神貫注",
+    "en": "absorb",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A007",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "豐富的；富有……的",
+    "en": "abundant",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A008",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "妄用；濫用／虐待；濫用",
+    "en": "abuse",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A009",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "口音；重音；強調",
+    "en": "accent",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A010",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "可以接受的",
+    "en": "acceptable",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A011",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "接受",
+    "en": "acceptance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A012",
+    "letter": "A",
+    "pos": "n./v.",
+    "zh": "接近；使用的權利／存取資料；接近",
+    "en": "access",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A013",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "意外",
+    "en": "accident",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A014",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "意外的",
+    "en": "accidental",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A015",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "偶然地；意外地",
+    "en": "accidentally",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A016",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "容納；提供服務；使……適應",
+    "en": "accommodate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A017",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "成就",
+    "en": "accomplishment",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A018",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "因此；相對應地",
+    "en": "accordingly",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A019",
+    "letter": "A",
+    "pos": "n./v.",
+    "zh": "帳戶；敘述；理由／解釋；為……負責",
+    "en": "account",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A020",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "有責任的",
+    "en": "accountable",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A021",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "會計師",
+    "en": "accountant",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A022",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "精確的",
+    "en": "accurate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A023",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "控告；譴責",
+    "en": "accuse",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A024",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "使習慣於",
+    "en": "accustom",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A025",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "已習慣的；慣例的",
+    "en": "accustomed",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A026",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "可完成的；可達成的",
+    "en": "achievable",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A027",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "使了解；使熟知；使認識",
+    "en": "acquaint",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A028",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "取得；學得；獲得",
+    "en": "acquire",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A029",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "行動；作用",
+    "en": "action",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A030",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "啟動；使……活動起來",
+    "en": "activate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A031",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "活躍的；積極的",
+    "en": "active",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A032",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "實際的；現實的；真實的",
+    "en": "actual",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A033",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "嚴重的；劇烈的；急性的；敏銳的",
+    "en": "acute",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A034",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "使適應；改編",
+    "en": "adapt",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A035",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "增加",
+    "en": "add",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A036",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "使人成癮的；成習慣的",
+    "en": "addictive",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A037",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "附加；附加的人事物；加法",
+    "en": "addition",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A038",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "附加的；額外的",
+    "en": "additional",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A039",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "足夠的；適當的",
+    "en": "adequate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A040",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "入場或入學許可；入場費",
+    "en": "admission",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A041",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "調整；適應",
+    "en": "adjust",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A042",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "值得稱讚的",
+    "en": "admirable",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A043",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "承認；容許",
+    "en": "admit",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A044",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "採用；收養",
+    "en": "adopt",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A045",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "採用；採納；收養",
+    "en": "adoption",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A046",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "崇拜；愛慕",
+    "en": "adore",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A047",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "裝飾；使……配戴珠寶",
+    "en": "adorn",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A048",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "進步；前進；推進／進步；進展",
+    "en": "advance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A049",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "益處；優勢",
+    "en": "advantage",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A050",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "冒險；奇遇；歷險故事",
+    "en": "adventure",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A051",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "打廣告",
+    "en": "advertise",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A052",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "廣告（簡稱 ad）",
+    "en": "advertisement",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A053",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "勸告",
+    "en": "advise",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A054",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "事務；曖昧關係",
+    "en": "affair",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A055",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "情感；愛慕；鍾愛",
+    "en": "affection",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A056",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "深情的；慈愛的",
+    "en": "affectionate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A057",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "感情的；情緒上的",
+    "en": "affective",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A058",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "確信；肯定；法律上的保證",
+    "en": "affirmation",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A059",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "買得起；負擔得起",
+    "en": "afford",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A060",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "代辦處；經銷處；代理機構；行政機構",
+    "en": "agency",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A061",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "侵略的；攻擊的；有衝動的",
+    "en": "aggressive",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A062",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "農業的",
+    "en": "agricultural",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A063",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "不透氣的；氣密的；無懈可擊的",
+    "en": "airtight",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A064",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "警告；發出警報／警報；警報裝置",
+    "en": "alarm",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A065",
+    "letter": "A",
+    "pos": "v./n./adj.",
+    "zh": "警告／警報／警覺的",
+    "en": "alert",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A066",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "聯盟；同盟國",
+    "en": "alliance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A067",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "幾乎",
+    "en": "almost",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A068",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "替代地；二選一地；另類地",
+    "en": "alternatively",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A069",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "總是；永遠",
+    "en": "always",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A070",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "使……驚愕",
+    "en": "amaze",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A071",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "深感驚訝的",
+    "en": "amazed",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A072",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "驚訝；令人吃驚的事物",
+    "en": "amazement",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A073",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "驚人地；非常地",
+    "en": "amazingly",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A074",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "模稜兩可的；有多種意思的",
+    "en": "ambiguous",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A075",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "模稜兩可；曖昧",
+    "en": "ambiguity",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A076",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "野心；企圖心",
+    "en": "ambition",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A077",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "野心勃勃的",
+    "en": "ambitious",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A078",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "放大聲音；增強；詳述",
+    "en": "amplify",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A079",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "分析",
+    "en": "analysis",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A080",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "分析",
+    "en": "analyze",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A081",
+    "letter": "A",
+    "pos": "n./v.",
+    "zh": "角度；觀點／垂釣",
+    "en": "angle",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A082",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "週年紀念",
+    "en": "anniversary",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A083",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "宣布",
+    "en": "announce",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A084",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "宣布",
+    "en": "announcement",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A085",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "煩惱的；生氣的",
+    "en": "annoyed",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A086",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "一年一度地；每年地",
+    "en": "annually",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A087",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "匿名地；作者不詳地",
+    "en": "anonymously",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A088",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "憂慮；不安",
+    "en": "anxiety",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A089",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "焦慮的",
+    "en": "anxious",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A090",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "焦慮地；渴望地",
+    "en": "anxiously",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A091",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "無論如何",
+    "en": "anyhow",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A092",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "道歉；賠罪",
+    "en": "apologize",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A093",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "道歉",
+    "en": "apology",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A094",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "明顯的；表面的",
+    "en": "apparent",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A095",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "表面上看來；明顯地",
+    "en": "apparently",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A096",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "懇求；吸引；訴諸；上訴／懇求；上訴",
+    "en": "appeal",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A097",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "吸引人的",
+    "en": "appealing",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A098",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "外表；出現",
+    "en": "appearance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A099",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "鼓掌喝采；稱讚",
+    "en": "applause",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A100",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "應用；申請；敷用；外用藥；專心",
+    "en": "application",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A101",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "器具；裝備；設備",
+    "en": "appliance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A102",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "申請；適用；應用；塗抹；使……專心致力",
+    "en": "apply",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A103",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "指派；約定；任命；指定",
+    "en": "appoint",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A104",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "約會；任命",
+    "en": "appointment",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A105",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "感激；欣賞",
+    "en": "appreciation",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A106",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "靠近／靠近；學習方法",
+    "en": "approach",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A107",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "贊同",
+    "en": "approval",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A108",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "大約地",
+    "en": "approximately",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A109",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "逮捕；拘留／逮捕",
+    "en": "arrest",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A110",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "自負的；傲慢的",
+    "en": "arrogant",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A111",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "人工的；不自然的",
+    "en": "artificial",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A112",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "上升；攀登",
+    "en": "ascend",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A113",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "以……為恥的；感到羞愧的",
+    "en": "ashamed",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A114",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "觀點；角度",
+    "en": "aspect",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A115",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "集合；裝配",
+    "en": "assemble",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A116",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "分配",
+    "en": "assign",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A117",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "把……聯想在一起；與……合夥／同事；夥伴",
+    "en": "associate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A118",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "協會",
+    "en": "association",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A119",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "認定；假定；斷定",
+    "en": "assume",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A120",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "保證；擔保；確信；信念",
+    "en": "assurance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A121",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "向……保證；使……相信",
+    "en": "assure",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A122",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "體育的；競賽的；體格強壯靈活的",
+    "en": "athletic",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A123",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "大氣；大氣層；氣氛；環境",
+    "en": "atmosphere",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A124",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "使固定；貼上",
+    "en": "attach",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A125",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "連結；附件；配件；愛戀；依戀",
+    "en": "attachment",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A126",
+    "letter": "A",
+    "pos": "n./v.",
+    "zh": "攻擊；侵襲；疾病發作／攻擊",
+    "en": "attack",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A127",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "到達；得到",
+    "en": "attain",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A128",
+    "letter": "A",
+    "pos": "v./n.",
+    "zh": "嘗試／企圖",
+    "en": "attempt",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A129",
+    "letter": "A",
+    "pos": "n./adj.",
+    "zh": "侍者；隨從人員／伴隨的",
+    "en": "attendant",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A130",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "注意；關注；立正",
+    "en": "attention",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A131",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "態度；看法；見解",
+    "en": "attitude",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A132",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "吸引；引起……的興趣",
+    "en": "attract",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A133",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "可信的；真正的；道地的",
+    "en": "authentic",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A134",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "可信地；真正地；道地地",
+    "en": "authentically",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A135",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "權威；權力",
+    "en": "authority",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A136",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "自動式的；機械式的；自發性的",
+    "en": "automatic",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A137",
+    "letter": "A",
+    "pos": "adv.",
+    "zh": "自動地",
+    "en": "automatically",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A138",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "可利用的；可得到的；有效的",
+    "en": "available",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A139",
+    "letter": "A",
+    "pos": "n./adj.",
+    "zh": "平均／平均的；一般的",
+    "en": "average",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A140",
+    "letter": "A",
+    "pos": "v.",
+    "zh": "避免",
+    "en": "avoid",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A141",
+    "letter": "A",
+    "pos": "adj./v.",
+    "zh": "醒著的／醒來；喚醒",
+    "en": "awake",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A142",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "意識到的；察覺到的；知道的",
+    "en": "aware",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A143",
+    "letter": "A",
+    "pos": "n.",
+    "zh": "意識；察覺",
+    "en": "awareness",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "A144",
+    "letter": "A",
+    "pos": "adj.",
+    "zh": "糟糕的；令人不愉快的",
+    "en": "awful",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B001",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "細菌",
+    "en": "bacteria",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B002",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "平衡；餘額／使平衡",
+    "en": "balance",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B003",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "沒有遮掩的；光禿的；勉強的",
+    "en": "bare",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B004",
+    "letter": "B",
+    "pos": "adv.",
+    "zh": "勉強地；幾乎不",
+    "en": "barely",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B005",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "廉價品／討價還價；議價；交涉",
+    "en": "bargain",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B006",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "障礙；隔閡",
+    "en": "barrier",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B007",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "基礎的；基本的",
+    "en": "basic",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B008",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "光束；無線電波／發出光或無線電波；微笑",
+    "en": "beam",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B009",
+    "letter": "B",
+    "pos": "adv.",
+    "zh": "事先；預先",
+    "en": "beforehand",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B010",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "相信；信念；信仰",
+    "en": "belief",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B011",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "可信賴的",
+    "en": "believable",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B012",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "深愛的；被喜愛的",
+    "en": "beloved",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B013",
+    "letter": "B",
+    "pos": "v./n.",
+    "zh": "使彎曲／彎曲",
+    "en": "bend",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B014",
+    "letter": "B",
+    "pos": "v./n.",
+    "zh": "獲利；受益／益處",
+    "en": "benefit",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B015",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "彎曲的",
+    "en": "bent",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B016",
+    "letter": "B",
+    "pos": "v./n.",
+    "zh": "咬／咬一口的量",
+    "en": "bite",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B017",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "苦的；痛苦的；嚴苛的；激烈的",
+    "en": "bitter",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B018",
+    "letter": "B",
+    "pos": "adv.",
+    "zh": "嚴酷地；猛烈地",
+    "en": "bitterly",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B019",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "責怪／責怪；歸咎於",
+    "en": "blame",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B020",
+    "letter": "B",
+    "pos": "n./v./adj.",
+    "zh": "毛毯；覆蓋物／覆蓋；掩蓋／全面的",
+    "en": "blanket",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B021",
+    "letter": "B",
+    "pos": "v.",
+    "zh": "祝福；保佑；使……享有",
+    "en": "bless",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B022",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "舞台走位與動作設計",
+    "en": "blocking",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B023",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "草本開花／草本花開",
+    "en": "bloom",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B024",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "木本開花／木本花開",
+    "en": "blossom",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B025",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "錯誤；大失誤",
+    "en": "blunder",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B026",
+    "letter": "B",
+    "pos": "v./n.",
+    "zh": "臉紅／臉紅",
+    "en": "blush",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B027",
+    "letter": "B",
+    "pos": "v.",
+    "zh": "自誇；以……為自豪",
+    "en": "boast",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B028",
+    "letter": "B",
+    "pos": "v./n.",
+    "zh": "預訂／書本",
+    "en": "book",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B029",
+    "letter": "B",
+    "pos": "v.",
+    "zh": "打擾；使……煩惱",
+    "en": "bother",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B030",
+    "letter": "B",
+    "pos": "v.",
+    "zh": "反彈；跳起；蹦跳；支票跳票",
+    "en": "bounce",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B031",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "突破；大躍進；新發現",
+    "en": "breakthrough",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B032",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "驚人的",
+    "en": "breathtaking",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B033",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "微風；輕而易舉之事／不費力地做事",
+    "en": "breeze",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B034",
+    "letter": "B",
+    "pos": "adj./v.",
+    "zh": "簡短的／作簡報",
+    "en": "brief",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B035",
+    "letter": "B",
+    "pos": "adv.",
+    "zh": "短暫地",
+    "en": "briefly",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B036",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "明亮的；卓越的",
+    "en": "brilliant",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B037",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "活潑的；輕快的；敏捷的；空氣清新的",
+    "en": "brisk",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B038",
+    "letter": "B",
+    "pos": "v.",
+    "zh": "使……加寬；增廣知識",
+    "en": "broaden",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B039",
+    "letter": "B",
+    "pos": "adj.",
+    "zh": "殘酷野蠻的",
+    "en": "brutal",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B040",
+    "letter": "B",
+    "pos": "n./v.",
+    "zh": "經費；預算／編列預算",
+    "en": "budget",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B041",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "公告；告示",
+    "en": "bulletin",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "B042",
+    "letter": "B",
+    "pos": "n.",
+    "zh": "商業；工作；交易",
+    "en": "business",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C001",
+    "letter": "C",
+    "pos": "v.",
+    "zh": "計算；估算；推測；打算",
+    "en": "calculate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C002",
+    "letter": "C",
+    "pos": "n.",
+    "zh": "計算",
+    "en": "calculation",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C003",
+    "letter": "C",
+    "pos": "n.",
+    "zh": "容量；容納度",
+    "en": "capacity",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C004",
+    "letter": "C",
+    "pos": "v.",
+    "zh": "俘虜；引起注意",
+    "en": "capture",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C005",
+    "letter": "C",
+    "pos": "n.",
+    "zh": "社會或政治性的活動",
+    "en": "campaign",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C006",
+    "letter": "C",
+    "pos": "v.",
+    "zh": "取消",
+    "en": "cancel",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C007",
+    "letter": "C",
+    "pos": "n.",
+    "zh": "候選人",
+    "en": "candidate",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C008",
+    "letter": "C",
+    "pos": "adj.",
+    "zh": "有能力的",
+    "en": "capable",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C009",
+    "letter": "C",
+    "pos": "adj.",
+    "zh": "非正式的；意外的；隨便的",
+    "en": "casual",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C010",
+    "letter": "C",
+    "pos": "adv.",
+    "zh": "隨便地；非正式地",
+    "en": "casually",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C011",
+    "letter": "C",
+    "pos": "v./n.",
+    "zh": "造成；導致／原因；理由；主張；目的",
+    "en": "cause",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C012",
+    "letter": "C",
+    "pos": "n.",
+    "zh": "小心；謹慎",
+    "en": "caution",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C013",
+    "letter": "C",
+    "pos": "adj.",
+    "zh": "小心的；謹慎的；周密的",
+    "en": "cautious",
+    "addedDate": "2026-09-26"
+  },
+  {
+    "id": "C014",
+    "letter": "C",
+    "pos": "adv.",
+    "zh": "小心謹慎地",
+    "en": "cautiously",
+    "addedDate": "2026-09-26"
+  }
+];
+
+  </script>
+<script>
+(() => {
+  'use strict';
+
+  const STORAGE_PROGRESS = 'taotao-vocab-progress-v2';
+  const STORAGE_PREFS = 'taotao-vocab-prefs-v2';
+
+  const els = {
+    totalCount: document.querySelector('#totalCount'),
+    knownCount: document.querySelector('#knownCount'),
+    unsureCount: document.querySelector('#unsureCount'),
+    missedCount: document.querySelector('#missedCount'),
+    letterFilters: document.querySelector('#letterFilters'),
+    modeSelect: document.querySelector('#modeSelect'),
+    shuffleToggle: document.querySelector('#shuffleToggle'),
+    cardSection: document.querySelector('#cardSection'),
+    emptyState: document.querySelector('#emptyState'),
+    flashcard: document.querySelector('#flashcard'),
+    cardId: document.querySelector('#cardId'),
+    cardPos: document.querySelector('#cardPos'),
+    cardZh: document.querySelector('#cardZh'),
+    cardEn: document.querySelector('#cardEn'),
+    speakBtn: document.querySelector('#speakBtn'),
+    positionLabel: document.querySelector('#positionLabel'),
+    statusLabel: document.querySelector('#statusLabel'),
+    progressBar: document.querySelector('#progressBar'),
+    prevBtn: document.querySelector('#prevBtn'),
+    nextBtn: document.querySelector('#nextBtn'),
+    ratingButtons: [...document.querySelectorAll('[data-rating]')],
+    resetBtn: document.querySelector('#resetBtn'),
+    toast: document.querySelector('#toast'),
+    installBtn: document.querySelector('#installBtn')
+  };
+
+  const vocabulary = Array.isArray(window.VOCABULARY) ? window.VOCABULARY : [];
+  const letters = ['all', ...new Set(vocabulary.map(item => item.letter).filter(Boolean))];
+
+  const statusText = {
+    unrated: '未作答',
+    miss: '不會',
+    unsure: '模糊',
+    know: '會了'
+  };
+
+  let progress = readJSON(STORAGE_PROGRESS, {});
+  const savedPrefs = readJSON(STORAGE_PREFS, {});
+  let prefs = {
+    letter: savedPrefs.letter || 'all',
+    mode: savedPrefs.mode || 'all',
+    shuffle: Boolean(savedPrefs.shuffle),
+    lastId: savedPrefs.lastId || null
+  };
+  let deck = [];
+  let index = 0;
+  let installPrompt = null;
+  let toastTimer = null;
+
+  function readJSON(key, fallback) {
+    try {
+      const raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function saveProgress() {
+    localStorage.setItem(STORAGE_PROGRESS, JSON.stringify(progress));
+  }
+
+  function savePrefs() {
+    localStorage.setItem(STORAGE_PREFS, JSON.stringify(prefs));
+  }
+
+  function localDateISO() {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  function shuffleArray(items) {
+    const arr = [...items];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function getStatus(id) {
+    return progress[id]?.status || 'unrated';
+  }
+
+  function buildLetterFilters() {
+    els.letterFilters.innerHTML = '';
+    for (const letter of letters) {
+      const button = document.createElement('button');
+      button.className = 'chip';
+      button.dataset.letter = letter;
+      button.type = 'button';
+      button.textContent = letter === 'all' ? '全部' : letter;
+      els.letterFilters.appendChild(button);
+    }
+  }
+
+  function filteredDeck() {
+    let items = vocabulary.filter(word => prefs.letter === 'all' || word.letter === prefs.letter);
+
+    if (prefs.mode === 'today') {
+      const today = localDateISO();
+      items = items.filter(word => word.addedDate === today);
+    } else if (prefs.mode === 'unrated') {
+      items = items.filter(word => getStatus(word.id) === 'unrated');
+    } else if (prefs.mode === 'miss') {
+      items = items.filter(word => getStatus(word.id) === 'miss');
+    } else if (prefs.mode === 'unsure') {
+      items = items.filter(word => getStatus(word.id) === 'unsure');
+    }
+
+    return prefs.shuffle ? shuffleArray(items) : items;
+  }
+
+  function rebuildDeck({ keepCurrent = true } = {}) {
+    const currentId = keepCurrent && deck[index] ? deck[index].id : prefs.lastId;
+    deck = filteredDeck();
+
+    if (deck.length === 0) {
+      index = 0;
+      render();
+      return;
+    }
+
+    const sameIndex = currentId ? deck.findIndex(word => word.id === currentId) : -1;
+    index = sameIndex >= 0 ? sameIndex : 0;
+    prefs.lastId = deck[index].id;
+    savePrefs();
+    render();
+  }
+
+  function renderSummary() {
+    const counts = { know: 0, unsure: 0, miss: 0 };
+    for (const word of vocabulary) {
+      const status = getStatus(word.id);
+      if (counts[status] !== undefined) counts[status] += 1;
+    }
+    els.totalCount.textContent = vocabulary.length;
+    els.knownCount.textContent = counts.know;
+    els.unsureCount.textContent = counts.unsure;
+    els.missedCount.textContent = counts.miss;
+  }
+
+  function renderFilters() {
+    els.letterFilters.querySelectorAll('[data-letter]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.letter === prefs.letter);
+    });
+    els.modeSelect.value = prefs.mode;
+    els.shuffleToggle.checked = prefs.shuffle;
+  }
+
+  function render() {
+    renderSummary();
+    renderFilters();
+
+    const empty = deck.length === 0;
+    els.emptyState.hidden = !empty;
+    els.cardSection.hidden = empty;
+    if (empty) return;
+
+    const word = deck[index];
+    const status = getStatus(word.id);
+
+    els.flashcard.classList.remove('flipped');
+    els.cardId.textContent = word.id;
+    els.cardPos.textContent = word.pos;
+    els.cardZh.textContent = word.zh;
+    els.cardEn.textContent = word.en;
+    els.positionLabel.textContent = `${index + 1} / ${deck.length}`;
+    els.progressBar.style.width = `${((index + 1) / deck.length) * 100}%`;
+    els.statusLabel.textContent = statusText[status];
+    els.statusLabel.dataset.status = status;
+
+    els.ratingButtons.forEach(btn => {
+      btn.classList.toggle('selected', btn.dataset.rating === status);
+      btn.setAttribute('aria-pressed', String(btn.dataset.rating === status));
+    });
+
+    els.prevBtn.disabled = index === 0;
+    els.nextBtn.disabled = index === deck.length - 1;
+    prefs.lastId = word.id;
+    savePrefs();
+  }
+
+  function move(step) {
+    if (!deck.length) return;
+    const next = Math.min(deck.length - 1, Math.max(0, index + step));
+    if (next === index) return;
+    index = next;
+    render();
+  }
+
+  function rate(status) {
+    const word = deck[index];
+    if (!word) return;
+    progress[word.id] = { status, updatedAt: new Date().toISOString() };
+    saveProgress();
+    renderSummary();
+
+    if ((prefs.mode === 'miss' && status !== 'miss') ||
+        (prefs.mode === 'unsure' && status !== 'unsure') ||
+        prefs.mode === 'unrated') {
+      rebuildDeck({ keepCurrent: false });
+      return;
+    }
+
+    render();
+    if (index < deck.length - 1) {
+      setTimeout(() => move(1), 120);
+    } else {
+      showToast('已記錄這張單字');
+    }
+  }
+
+  function speakCurrent() {
+    const word = deck[index];
+    if (!word || !('speechSynthesis' in window)) {
+      showToast('此瀏覽器不支援語音朗讀');
+      return;
+    }
+    speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(word.en);
+    utter.lang = 'en-US';
+    utter.rate = 0.86;
+    speechSynthesis.speak(utter);
+  }
+
+  function showToast(message) {
+    clearTimeout(toastTimer);
+    els.toast.textContent = message;
+    els.toast.classList.add('show');
+    toastTimer = setTimeout(() => els.toast.classList.remove('show'), 1800);
+  }
+
+  els.flashcard.addEventListener('click', event => {
+    if (event.target.closest('#speakBtn')) return;
+    els.flashcard.classList.toggle('flipped');
+  });
+
+  els.speakBtn.addEventListener('click', event => {
+    event.stopPropagation();
+    speakCurrent();
+  });
+
+  els.speakBtn.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      event.stopPropagation();
+      speakCurrent();
+    }
+  });
+
+  els.prevBtn.addEventListener('click', () => move(-1));
+  els.nextBtn.addEventListener('click', () => move(1));
+
+  els.ratingButtons.forEach(btn => {
+    btn.addEventListener('click', () => rate(btn.dataset.rating));
+  });
+
+  els.letterFilters.addEventListener('click', event => {
+    const btn = event.target.closest('[data-letter]');
+    if (!btn) return;
+    prefs.letter = btn.dataset.letter;
+    savePrefs();
+    rebuildDeck({ keepCurrent: false });
+  });
+
+  els.modeSelect.addEventListener('change', () => {
+    prefs.mode = els.modeSelect.value;
+    savePrefs();
+    rebuildDeck({ keepCurrent: false });
+  });
+
+  els.shuffleToggle.addEventListener('change', () => {
+    prefs.shuffle = els.shuffleToggle.checked;
+    savePrefs();
+    rebuildDeck({ keepCurrent: false });
+  });
+
+  els.resetBtn.addEventListener('click', () => {
+    const ok = confirm('確定要清除所有「會／模糊／不會」紀錄嗎？單字本身不會刪除。');
+    if (!ok) return;
+    progress = {};
+    saveProgress();
+    rebuildDeck({ keepCurrent: false });
+    showToast('學習紀錄已重設');
+  });
+
+  document.addEventListener('keydown', event => {
+    if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+    if (event.key === ' ') {
+      event.preventDefault();
+      els.flashcard.classList.toggle('flipped');
+    } else if (event.key === 'ArrowLeft') {
+      move(-1);
+    } else if (event.key === 'ArrowRight') {
+      move(1);
+    } else if (event.key === '1') {
+      rate('miss');
+    } else if (event.key === '2') {
+      rate('unsure');
+    } else if (event.key === '3') {
+      rate('know');
+    }
+  });
+
+  window.addEventListener('beforeinstallprompt', event => {
+    event.preventDefault();
+    installPrompt = event;
+    els.installBtn.hidden = false;
+  });
+
+  els.installBtn.addEventListener('click', async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    els.installBtn.hidden = true;
+  });
+
+
+  buildLetterFilters();
+  rebuildDeck({ keepCurrent: true });
+})();
+
+  </script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+</script>
+</body></html>
