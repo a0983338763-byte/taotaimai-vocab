@@ -1,0 +1,15 @@
+{
+  "name": "桃太妹種單字",
+  "short_name": "桃太妹種單字",
+  "description": "中文先想，英文再翻。個人單字卡。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff8eb",
+  "theme_color": "#ff9a7c",
+  "lang": "zh-TW",
+  "icons": [
+    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
