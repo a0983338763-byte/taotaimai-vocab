@@ -1,8 +1,11 @@
-const CACHE = 'taotao-vocab-v4-20260926-2';
+const CACHE = 'taotao-vocab-v4-20260926-3';
 const CORE = [
   './',
   './index.html',
   './manifest.webmanifest',
+  './data/vocab-e-i.js',
+  './data/vocab-j-p.js',
+  './data/vocab-q-y.js',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
