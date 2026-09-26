@@ -1,4 +1,4 @@
-const CACHE = 'taotao-vocab-v4-20260926';
+const CACHE = 'taotao-vocab-v4-20260926-2';
 const CORE = [
   './',
   './index.html',
