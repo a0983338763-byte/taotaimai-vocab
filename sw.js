@@ -1,4 +1,4 @@
-const CACHE = 'taotao-vocab-v4-20260926-3';
+const CACHE = 'taotao-vocab-v4-20261006-wrong1';
 const CORE = [
   './',
   './index.html',
@@ -6,6 +6,7 @@ const CORE = [
   './data/vocab-e-i.js',
   './data/vocab-j-p.js',
   './data/vocab-q-y.js',
+  './data/wrong-words.js',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
