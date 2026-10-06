@@ -95,7 +95,7 @@ h1{margin:0;font-size:clamp(36px,8vw,54px);line-height:.98;letter-spacing:-.065e
       <div class="panel-head"><div><span class="panel-kicker">CHOOSE YOUR TRIP</span><h2>今天要背哪一區？</h2></div><span class="stamp">POSTCARD</span></div>
       <div class="group"><span class="label">字母分類</span><div id="letterFilters" class="chip-row"></div></div>
       <div class="control-grid">
-        <label class="group"><span class="label">複習範圍</span><select id="modeSelect" class="select"><option value="all">全部單字</option><option value="today">今日新增</option><option value="unrated">未作答</option><option value="miss">只看不會</option><option value="unsure">只看模糊</option></select></label>
+        <label class="group"><span class="label">複習範圍</span><select id="modeSelect" class="select"><option value="all">全部單字</option><option value="wrong">錯題單字</option><option value="miss">只看不會</option><option value="unsure">只看模糊</option></select></label>
         <label class="switch"><span><strong>隨機順序</strong><small>打亂目前範圍</small></span><input id="shuffleToggle" type="checkbox"></label>
       </div>
     </section>
@@ -3889,6 +3889,7 @@ window.VOCABULARY = [
 <script src="./data/vocab-e-i.js"></script>
 <script src="./data/vocab-j-p.js"></script>
 <script src="./data/vocab-q-y.js"></script>
+<script src="./data/wrong-words.js"></script>
 <script>
 (() => {
   'use strict';
@@ -3924,6 +3925,20 @@ window.VOCABULARY = [
   };
 
   const vocabulary = Array.isArray(window.VOCABULARY) ? window.VOCABULARY : [];
+  const wrongSource = Array.isArray(window.WRONG_WORDS) ? window.WRONG_WORDS : [];
+  const vocabularyByEnglish = new Map(vocabulary.map(word => [String(word.en || '').toLowerCase(), word]));
+  const wrongVocabulary = wrongSource.map((item, i) => {
+    const existing = vocabularyByEnglish.get(String(item.en || '').toLowerCase());
+    if (existing) return existing;
+    return {
+      id: `ERR${String(i + 1).padStart(3, '0')}`,
+      letter: String(item.en || '').charAt(0).toUpperCase(),
+      pos: '錯題',
+      zh: item.zh || '',
+      en: item.en || '',
+      addedDate: '2026-10-06'
+    };
+  });
   const letters = ['all', ...new Set(vocabulary.map(item => item.letter).filter(Boolean))];
 
   const statusText = {
@@ -3935,9 +3950,10 @@ window.VOCABULARY = [
 
   let progress = readJSON(STORAGE_PROGRESS, {});
   const savedPrefs = readJSON(STORAGE_PREFS, {});
+  const allowedModes = new Set(['all', 'wrong', 'miss', 'unsure']);
   let prefs = {
     letter: savedPrefs.letter || 'all',
-    mode: savedPrefs.mode || 'all',
+    mode: allowedModes.has(savedPrefs.mode) ? savedPrefs.mode : 'all',
     shuffle: Boolean(savedPrefs.shuffle),
     lastId: savedPrefs.lastId || null
   };
@@ -3997,14 +4013,10 @@ window.VOCABULARY = [
   }
 
   function filteredDeck() {
-    let items = vocabulary.filter(word => prefs.letter === 'all' || word.letter === prefs.letter);
+    const source = prefs.mode === 'wrong' ? wrongVocabulary : vocabulary;
+    let items = source.filter(word => prefs.letter === 'all' || word.letter === prefs.letter);
 
-    if (prefs.mode === 'today') {
-      const today = localDateISO();
-      items = items.filter(word => word.addedDate === today);
-    } else if (prefs.mode === 'unrated') {
-      items = items.filter(word => getStatus(word.id) === 'unrated');
-    } else if (prefs.mode === 'miss') {
+    if (prefs.mode === 'miss') {
       items = items.filter(word => getStatus(word.id) === 'miss');
     } else if (prefs.mode === 'unsure') {
       items = items.filter(word => getStatus(word.id) === 'unsure');
