@@ -1,210 +1,470 @@
 window.WRONG_WORDS = [
   {
+    "id": "ERR001",
+    "letter": "P",
+    "pos": "錯題",
+    "zh": "前提",
     "en": "premise",
-    "zh": "前提"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR002",
+    "letter": "C",
+    "pos": "錯題",
+    "zh": "妥協",
     "en": "compromise",
-    "zh": "妥協"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR003",
+    "letter": "P",
+    "pos": "錯題",
+    "zh": "擁有",
     "en": "possession",
-    "zh": "擁有"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR004",
+    "letter": "A",
+    "pos": "錯題",
+    "zh": "感情",
     "en": "affections",
-    "zh": "感情"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR005",
+    "letter": "I",
+    "pos": "錯題",
+    "zh": "親密的",
     "en": "intimate",
-    "zh": "親密的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR006",
+    "letter": "D",
+    "pos": "錯題",
+    "zh": "注定的",
     "en": "destined",
-    "zh": "注定的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR007",
+    "letter": "I",
+    "pos": "錯題",
+    "zh": "香",
     "en": "incense",
-    "zh": "香"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR008",
+    "letter": "T",
+    "pos": "錯題",
+    "zh": "忍受",
     "en": "tolerance",
-    "zh": "忍受"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR009",
+    "letter": "O",
+    "pos": "錯題",
+    "zh": "長大而不再適合",
     "en": "outgrew",
-    "zh": "長大而不再適合"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR010",
+    "letter": "O",
+    "pos": "錯題",
+    "zh": "智勝",
     "en": "outwitted",
-    "zh": "智勝"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR011",
+    "letter": "O",
+    "pos": "錯題",
+    "zh": "被取締",
     "en": "outlawed",
-    "zh": "被取締"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR012",
+    "letter": "O",
+    "pos": "錯題",
+    "zh": "在數量上超過",
     "en": "outnumbered",
-    "zh": "在數量上超過"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR013",
+    "letter": "P",
+    "pos": "錯題",
+    "zh": "繁榮",
     "en": "prospering",
-    "zh": "繁榮"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR014",
+    "letter": "D",
+    "pos": "錯題",
+    "zh": "愉快",
     "en": "delightful",
-    "zh": "愉快"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR015",
+    "letter": "R",
+    "pos": "錯題",
+    "zh": "不情願的",
     "en": "reluctant",
-    "zh": "不情願的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR016",
+    "letter": "W",
+    "pos": "錯題",
+    "zh": "枯萎",
     "en": "withered",
-    "zh": "枯萎"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR017",
+    "letter": "S",
+    "pos": "錯題",
+    "zh": "擺動",
     "en": "swung",
-    "zh": "擺動"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR018",
+    "letter": "P",
+    "pos": "錯題",
+    "zh": "追求",
     "en": "pursuit",
-    "zh": "追求"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR019",
+    "letter": "D",
+    "pos": "錯題",
+    "zh": "喜；高興",
     "en": "delight",
-    "zh": "喜；高興"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR020",
+    "letter": "W",
+    "pos": "錯題",
+    "zh": "哭泣",
     "en": "wept",
-    "zh": "哭泣"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR021",
+    "letter": "I",
+    "pos": "錯題",
+    "zh": "意味著",
     "en": "imply",
-    "zh": "意味著"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR022",
+    "letter": "B",
+    "pos": "錯題",
+    "zh": "打擾；使煩惱",
     "en": "bother",
-    "zh": "打擾；使煩惱"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR023",
+    "letter": "A",
+    "pos": "錯題",
+    "zh": "使……逗樂",
     "en": "amuse",
-    "zh": "使……逗樂"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR024",
+    "letter": "G",
+    "pos": "錯題",
+    "zh": "漸進的",
     "en": "gradual",
-    "zh": "漸進的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR025",
+    "letter": "I",
+    "pos": "錯題",
+    "zh": "密集的",
     "en": "intensive",
-    "zh": "密集的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR026",
+    "letter": "M",
+    "pos": "錯題",
+    "zh": "手動的",
     "en": "manual",
-    "zh": "手動的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR027",
+    "letter": "C",
+    "pos": "錯題",
+    "zh": "開始",
     "en": "commence",
-    "zh": "開始"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR028",
+    "letter": "P",
+    "pos": "錯題",
+    "zh": "規定的",
     "en": "prescribed",
-    "zh": "規定的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR029",
+    "letter": "O",
+    "pos": "錯題",
+    "zh": "佔領",
     "en": "occupied",
-    "zh": "佔領"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR030",
+    "letter": "S",
+    "pos": "錯題",
+    "zh": "膚淺的",
     "en": "superficial",
-    "zh": "膚淺的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR031",
+    "letter": "D",
+    "pos": "錯題",
+    "zh": "理想的",
     "en": "desirable",
-    "zh": "理想的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR032",
+    "letter": "M",
+    "pos": "錯題",
+    "zh": "悲慘的",
     "en": "miserable",
-    "zh": "悲慘的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR033",
+    "letter": "T",
+    "pos": "錯題",
+    "zh": "處理",
     "en": "tackle",
-    "zh": "處理"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR034",
+    "letter": "S",
+    "pos": "錯題",
+    "zh": "努力",
     "en": "strive",
-    "zh": "努力"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR035",
+    "letter": "I",
+    "pos": "錯題",
+    "zh": "堅持",
     "en": "insist",
-    "zh": "堅持"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR036",
+    "letter": "M",
+    "pos": "錯題",
+    "zh": "激勵",
     "en": "motivate",
-    "zh": "激勵"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR037",
+    "letter": "D",
+    "pos": "錯題",
+    "zh": "決定",
     "en": "determine",
-    "zh": "決定"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR038",
+    "letter": "S",
+    "pos": "錯題",
+    "zh": "精神的",
     "en": "spiritual",
-    "zh": "精神的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR039",
+    "letter": "M",
+    "pos": "錯題",
+    "zh": "物質",
     "en": "material",
-    "zh": "物質"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR040",
+    "letter": "V",
+    "pos": "錯題",
+    "zh": "必不可少的",
     "en": "vital",
-    "zh": "必不可少的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR041",
+    "letter": "M",
+    "pos": "錯題",
+    "zh": "道德的",
     "en": "moral",
-    "zh": "道德的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR042",
+    "letter": "M",
+    "pos": "錯題",
+    "zh": "相互的",
     "en": "mutual",
-    "zh": "相互的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR043",
+    "letter": "D",
+    "pos": "錯題",
+    "zh": "溝",
     "en": "ditch",
-    "zh": "溝"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR044",
+    "letter": "S",
+    "pos": "錯題",
+    "zh": "敗壞",
     "en": "spoil",
-    "zh": "敗壞"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR045",
+    "letter": "O",
+    "pos": "錯題",
+    "zh": "得罪",
     "en": "offended",
-    "zh": "得罪"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR046",
+    "letter": "H",
+    "pos": "錯題",
+    "zh": "習慣性的",
     "en": "habitual",
-    "zh": "習慣性的"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR047",
+    "letter": "L",
+    "pos": "錯題",
+    "zh": "悠閒",
     "en": "leisurely",
-    "zh": "悠閒"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR048",
+    "letter": "I",
+    "pos": "錯題",
+    "zh": "不合邏輯地",
     "en": "illogically",
-    "zh": "不合邏輯地"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR049",
+    "letter": "L",
+    "pos": "錯題",
+    "zh": "同樣地",
     "en": "likewise",
-    "zh": "同樣地"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR050",
+    "letter": "P",
+    "pos": "錯題",
+    "zh": "繁榮",
     "en": "prosperity",
-    "zh": "繁榮"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR051",
+    "letter": "B",
+    "pos": "錯題",
+    "zh": "負擔",
     "en": "burden",
-    "zh": "負擔"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   },
   {
+    "id": "ERR052",
+    "letter": "S",
+    "pos": "錯題",
+    "zh": "駕駛",
     "en": "steered",
-    "zh": "駕駛"
+    "addedDate": "2026-10-06",
+    "source": "藍筆錯題"
   }
 ];
